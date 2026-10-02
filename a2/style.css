@@ -1,0 +1,22 @@
+/*magnificient code made by Sebastian Korva*/
+img {
+    width: 600px;
+    height: 600px;
+    margin: auto;
+    display: block;
+}
+
+body {
+    background-color: gainsboro;
+}
+
+p {
+    color: black;  
+    text-align: center;
+}
+
+h1 {
+    color: black;  
+    text-align: center;
+
+}
