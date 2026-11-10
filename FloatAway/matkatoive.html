@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Sebastian Korva">
+    <title>Float Away - Dream Trip</title>
+    <link rel="icon" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">Float Away!</a>
+            <nav>
+                <ul><li><a href="index.html">Main Page</a></li>
+                <li><a href="matkainfo.html">Travel Info</a></li>
+                <li><a href="matkatoive.html">Dream Trip</a></li></ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <h1>Dream Trip</h1>
+        <p>Tell us about your dream trip! Fill in the form below to send your travel request floating to us!</p>
+        <p class="form-notice">
+            This is a practice form. Nothing actually happens.
+        </p>
+        <section class="request-form">
+            <h2>Travel Request</h2>
+            <form id="travel-form">
+
+                <div class="form-group">
+                <label for="email">Email address:</label>
+                <input type="email" id="email" name="email" required>
+                <span id="email-error" class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                <label for="destination">Choose your destination:</label>
+                <select id="destination" name="destination" required>
+                    <option value="" disabled selected>Select Destination</option>
+                    <option value="Finland">Finland</option>
+                    <option value="Sweden">Sweden</option>
+                    <option value="Norway">Norway</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="departure">Departure date:</label>
+                <input type="date" id="departure" name="departure" min="2026-11-10" max="2028-11-10" required>
+            </div>
+
+            <div class="form-group">
+                <label for="passengers">Number of passengers:</label>
+                <input type="number" id="passengers" name="passengers"
+                    min="1" max="8" required>
+            </div>
+
+            <button type="submit">Send Dream Trip!</button>
+
+
+            </form>
+        </section>
+
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; Float Away</p>
+        </div>
+    </footer>
+
+<script>
+const form = document.getElementById("travel-form");
+const email = document.getElementById("email");
+const emailError = document.getElementById("email-error");
+const departure = document.getElementById("departure");
+
+const today = new Date();
+const twoYearsFromNow = new Date();
+
+twoYearsFromNow.setFullYear(today.getFullYear() + 2);
+
+departure.min = today.toISOString().split("T")[0];
+departure.max = twoYearsFromNow.toISOString().split("T")[0];
+
+email.addEventListener("input", function () {
+    if (email.validity.valueMissing) {
+        emailError.textContent = "Please enter your email address.";
+    } else if (email.validity.typeMismatch) {
+        emailError.textContent = "Please enter a valid email address.";
+    } else {
+        emailError.textContent = "";
+    }
+});
+
+form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    if (email.validity.valueMissing) {
+        emailError.textContent = "Please enter your email address.";
+    } else if (email.validity.typeMismatch) {
+        emailError.textContent = "Please enter a valid email address.";
+    } else {
+        emailError.textContent = "";
+    }
+
+    if (form.checkValidity()) {
+        alert("Your practice travel request is complete!");
+    } else {
+        form.reportValidity();
+    }
+});
+
+</script>
+</body>
+</html>

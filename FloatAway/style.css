@@ -1,0 +1,252 @@
+/* 
+---------Few Color Variables since the task wants you to have some specifically---------
+*/
+:root {
+    --main-pink: #ffb6c1;
+    --light-pink: #fff0f3;
+    --dark-pink: #9e5364;
+}
+
+
+/*
+---------Content For Footer and Header (so base html stuff that affect the basics of everything)---------
+*/
+
+header {
+     background: linear-gradient(to right, var(--main-pink), #ff9eaa);
+     padding-inline: 1.5rem;
+}
+
+html, body {
+height: 100%;
+}
+
+main {
+    flex-grow: 1;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0; /*Easy fix to stop white from showing up in header nav stuff.*/
+}
+
+.container {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding-inline: 1.5rem;
+    box-sizing: border-box;
+}
+
+.header-content {
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-block: 1rem;
+    width: 100%;
+    
+}
+
+.logo {
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: aquamarine;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+nav a {
+    text-decoration: none;
+    font-weight: bold;
+    color: aquamarine;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+footer {
+    background-color: pink;
+    padding: 1rem 0;
+    text-align: center;
+    width: 100%;
+}
+
+/*
+---------Content Specifically for the non base stuff in all three sites.---------
+*/
+
+/*Index.html*/
+.introduction {
+    
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.introtext {
+    flex: 1;
+}
+
+.introimage {
+    flex: 1;
+}
+
+.introimage img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+}
+
+.destination {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+        "small-1 big-1"
+        "small-2 big-1";
+    gap: 1.5rem;
+    padding-bottom: 3rem;
+}
+
+.small-1 {
+    grid-area: small-1;
+}
+
+.small-2 {
+    grid-area: small-2;
+}
+
+.big-1 {
+    grid-area: big-1;
+}
+
+
+.destination-card {
+    background-color: var(--light-pink);
+    border-radius: 12px;
+}
+
+.destination-card img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+}
+
+.destination-content {
+    padding: 2rem;
+}
+
+/*matkatoive.html*/
+.info-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+.info-card {
+    background-color: var(--light-pink);
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid var(--main-pink);
+}
+
+.info-card h2 {
+    color: var(--dark-pink);
+}
+
+.trip-comparison table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+.trip-comparison caption {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 1rem;
+}
+
+.trip-comparison th,
+.trip-comparison td {
+    padding: 1rem;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.trip-comparison th {
+    background-color: var(--main-pink);
+    color: var(--dark-pink);
+}
+
+.faq h2 {
+    color: var(--dark-pink);
+}
+
+
+/*matkainfo.html*/
+
+
+.request-form h2 {
+    color: var(--dark-pink);
+}
+
+.error-message {
+    color: #c62828;
+    font-size: 0.9rem;
+    margin-top: 0.4rem;
+}
+
+.form-notice {
+    background-color: var(--light-pink);
+    padding: 1rem;
+    border-left: 4px solid #ff9eaa;
+}
+
+.request-form button {
+    background-color: #e9899b;
+    color: white;
+    padding: 0.9rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.request-form button:hover {
+    background-color: #d66d82;
+}
+
+/*
+---------Content for mobile phones smaller devices---------
+*/
+@media (max-width: 899px) {
+
+    .introduction {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .destination {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+
+        grid-template-areas:
+            "big-1 big-1"
+            "small-1 small-2";
+    }
+
+    .info-cards {
+        grid-template-columns: 1fr;
+    }
+}
